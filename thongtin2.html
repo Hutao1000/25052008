@@ -1,0 +1,34 @@
+<html><head><title> Thông tin đăng ký</title>
+    <script language="javascript">
+    window.onload = function()
+     {
+    // Lấy thông tin từ URL
+    var params = new URLSearchParams(window.location.search);
+    var Ten = params.get("Ten");
+    var Email = params.get("Email");
+    var SoDienThoai = params.get("SoDienThoai");
+    var tennuoc = params.get("tennuoc");
+    var khoahoc = params.get("khoahoc");
+    var noidung = params.get("noidung");
+    // Hiển thị thông tin
+    document.getElementById("Ten").innerText = "Họ tên: " + Ten; 
+    document.getElementById("Email").innerText = "Mật khẩu: " + Email;
+    document.getElementById("SoDienThoai").innerText = "Sdt: " + SoDienThoai;
+    document.getElementById("tennuoc").innerText = "Tên nước :" + tennuoc;
+    document.getElementById("khoahoc").innerText = "Khóa học :"  + khoahoc;
+    document.getElementById("noidung").innerText = "Nội dung :" + noidung;
+    }
+    </script>
+    </head><body>
+    <table border="1px" cellspacing="0px" cellpading="2px" style="border-color:brown;" align="center">
+    <tr style="background-color: aqua; color: red;">
+    <td align="center"><h3>THÔNG TIN ĐĂNG KÝ ONLINE</h3></td></tr>
+    <tr><td><ul>
+    <li id="Ten"></li>
+    <li id="Email"></li>
+    <li id="SoDienThoai"></li>
+    <li id="tennuoc"></li>
+    <li id="khoahoc"></li>
+    <li id="noidung"></li>
+    </ul></td></tr></table>
+    </body></html>

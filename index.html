@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script language="Javascript">
+        function chonkhoa()
+        {
+            var Ten=document.frmdangnhap.Ten.value;
+            var Email=document.frmdangnhap.Email.value;
+            var SoDienThoai=document.frmdangnhap.SoDienThoai.value;
+            var tennuoc = document.frmdangnhap.tennuoc.value;
+        var khoahoc = document.frmdangnhap.khoahoc.value;
+        var noidung = document.frmdangnhap.noidung.value;
+          if(tennuoc=="chonnuoc")
+          {
+            alert("Vui lòng chọn 1 nước!");
+            return false;
+          } 
+          if(khoahoc=="chonkhoahoc")
+          {
+            alert("Vui lòng chọn 1 khóa học!");
+            return false;
+          }
+          if(noidung=="")
+          {
+            alert("Vui lòng nhập nội dung");
+            return false;
+          }
+            if(Ten.length=="")
+        {
+            alert("Vui lòng nhập họ tên");
+            document.frmdangnhap.Ten.focus();
+            return false;
+        }
+        if(Email.length=="")
+        {
+            alert("Vui lòng nhập mã số");
+            document.frmdangnhap.Email.focus();
+            return false;
+        }
+        if(SoDienThoai.length=="")
+        {
+            alert("Vui lòng nhập chức danh");
+            document.frmdangnhap.SoDienThoai.focus();
+            return false;
+        }
+        {
+        alert("Thông Tin Hợp Lệ");
+        var thongtin = "<h3>Thông tin đăng nhập</h3>" +
+        "<p>Tên: "+ Ten + " </p>" +
+        "<p>Email: "+ Email + "</p>" + 
+        "<pSdt: "+ SoDienThoai + "</p>" +
+"<p>Nội Dung: "+ noidung + "</p>";
+        document.getElementById("hienthongtin").innerHTML = thongtin;
+    }
+    {
+        var email=document.frmdangnhap.Email.value; 
+        var dinhdang_Email = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+         if(email=="")
+{
+alert("Vui lòng nhập email!"); document.frmdangnhap.Email.focus();
+ return false;
+}
+else if(!dinhdang_Email.test(Email))
+{
+alert("Địa chỉ email chưa đúng định dạng!");
+ document.frmdangnhap.Email.focus();
+ return false;
+}
+// Chuyển hướng với các tham số truyền
+ var queryString = "?Ten=" + encodeURIComponent (Ten) + 
+ "&Email=" + encodeURIComponent(Email) + "&SoDienThoai=" + encodeURIComponent(SoDienThoai)+ 
+ "&tennuoc=" + encodeURIComponent (tennuoc)+ "&khoahoc=" + encodeURIComponent(khoahoc)+ 
+ "&noidung=" + encodeURIComponent (noidung); 
+ window.location.href = "thongtin2.html" + queryString;
+    }
+}
+        </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family:Arial, Helvetica, sans-serif;">
+    <b style="font-size: 40px; color: red;">Đăng kí khóa học online</b>
+    <form name="frmdangnhap" method="post" action="thongtin2.html">
+        <table border="0px">
+<tr>
+    <td>
+        Họ Tên
+    </td>
+    <td>
+        <input type="text" name="Ten" placeholder="Nhập họ tên đầy đủ" required size="30px">
+    </td>
+</tr>
+<tr>
+    <td>
+        Địa chỉ email
+    </td>
+    <td>
+        <input type="text" name="Email" placeholder="Nhập địa chỉ email" required size="30px">
+    </td>
+</tr>
+<tr>
+    <td>
+        Số Điện Thoại
+    </td>
+    <td>
+        <input type="text" name="SoDienThoai" placeholder="Nhập số điện thoại" size="30px">
+    </td>
+</tr>
+<tr>
+    <TD>Chọn Thông Tin</TD>
+    <TD>
+        <select name="tennuoc" required>
+        <option value="chonnuoc">Chọn nước</option>
+        <option value="Vietnam">Việt Nam</option>
+        <option value="Hanquoc">Hàn Quốc</option>
+        <option value="Trungquoc">Trung Quốc</option>
+        </select>
+    <select name="khoahoc" required>
+        <option value="chonkhoahoc">Chọn Khóa Học</option>
+<option value="Toan">Toán</option>
+<option value="Li">Lí</option>
+<option value="Hoa">Hóa</option>
+    </select>
+</TD>
+        </tr>
+            <tr><td>
+                 Nội Dung
+        </td>
+        <td>
+            <textarea name="noidung" cols="40" rows="10" placeholder="Nhập nội dung liên hệ"value="noidung">
+            </textarea>
+        </td>
+</tr>
+<tr><td colspan="2" align="center">
+    <input type="button" name="btdangnhap" value="Gửi" onclick="return chonkhoa();">
+</button> Vui lòng điền đầy đủ thông tin</td></tr>
+<td colspan="2">
+    <div id="hienthongtin">
+    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
